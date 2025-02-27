@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="ExpanderSt" TargetType="Expander" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Expander">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <DockPanel >
+                            <!-- Header with arrow icon on the right -->
+                            <ToggleButton 
+                                DockPanel.Dock="Top" 
+                                IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded}" 
+                                Template="{DynamicResource ExpanderToggleButtonTemplate}">
+                                <ContentPresenter ContentSource="Header" HorizontalAlignment="Left" />
+                            </ToggleButton>
+                            <!-- Content -->
+                            <ContentPresenter 
+                                x:Name="ExpandSite" 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                Margin="{TemplateBinding Padding}" />
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="false">
+                            <Setter TargetName="ExpandSite" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsExpanded" Value="true">
+                            <Setter TargetName="ExpandSite" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="ExpanderToggleButtonTemplate" TargetType="ToggleButton">
+        <Grid x:Name="Header" Background="{StaticResource PrimaryBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ContentPresenter Grid.Column="0" VerticalAlignment="Center" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Border BorderThickness="0.5" BorderBrush="{StaticResource LightBrushHover}" Margin="2"/>
+                <TextBlock 
+                    x:Name="IconHeader" VerticalAlignment="Center" Margin="3 5 5 5"
+                    FontFamily="Segoe MDL2 Assets" Text="&#xE948;" FontSize="10"
+                    Foreground="{DynamicResource LightBrush}"/>
+            </StackPanel>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="true">
+                <Setter TargetName="IconHeader" Property="TextBlock.Text" Value="&#xE921;" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="Header" Property="Grid.Background" Value="{StaticResource PrimaryBrushHover}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+</ResourceDictionary>

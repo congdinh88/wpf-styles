@@ -1,0 +1,17 @@
+﻿<Application x:Class="UIStyles.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:UIStyles"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/ColorSt.xaml"/>
+                <ResourceDictionary Source="Styles/ExpanderSt.xaml"/>
+                <ResourceDictionary Source="Styles/ButtonSt.xaml"/>
+                <ResourceDictionary Source="Styles/IconSt.xaml"/>
+                <ResourceDictionary Source="Styles/DataGridSt.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
