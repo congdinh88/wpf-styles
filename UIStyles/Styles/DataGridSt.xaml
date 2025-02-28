@@ -1,23 +1,65 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!--<Style TargetType="DataGridColumnHeader">
-        <Setter Property="Background" Value="#2D89EF"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Height" Value="40"/>
-    </Style>-->
 
-    <Style TargetType="DataGridRow">
-        <Setter Property="Background" Value="White"/>
-        <Style.Triggers>
-            <Trigger Property="AlternationIndex" Value="1">
-                <Setter Property="Background" Value="#F2F2F2"/>
-            </Trigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#D9EDF7"/>
-            </Trigger>
-        </Style.Triggers>
+    <Style x:Key="DataGridSt" TargetType="DataGrid" >
+        <Setter Property="GridLinesVisibility" Value="All"/>
+        <!--<Setter Property="HorizontalGridLinesBrush" Value="{StaticResource PrimaryBrush}"/>
+        <Setter Property="VerticalGridLinesBrush" Value="{StaticResource PrimaryBrush}"/>-->
+        <Setter Property="Background" Value="{StaticResource LightBrush}"/>
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource LightBrushHover}"/>
+        
+        <Setter Property="CellStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Padding" Value="5"/>
+                    <!--<Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
+                    <Setter Property="BorderThickness" Value="0.3"/>-->
+
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True">
+                            <Setter Property="Background" Value="{StaticResource LightBrushHover}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsSelected}" Value="True">
+                            <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                            <Setter Property="Foreground" Value="{StaticResource LightBrush}"/>
+                        </DataTrigger>
+                        
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        
+        <Setter Property="RowHeaderWidth" Value="0"/>
     </Style>
+
+    <DrawingBrush x:Key="CustomHorizontalGridLinesBrush" Stretch="None" TileMode="Tile" Viewport="0,0,1,1" ViewportUnits="Absolute">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Brush="Gray">
+                <GeometryDrawing.Pen>
+                    <Pen Brush="Gray" Thickness="0.5" />
+                    <!-- Độ dày 2 pixel -->
+                </GeometryDrawing.Pen>
+                <GeometryDrawing.Geometry>
+                    <LineGeometry StartPoint="0,0" EndPoint="1,0" />
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <!-- Định nghĩa Brush cho đường dọc -->
+    <DrawingBrush x:Key="CustomVerticalGridLinesBrush" Stretch="None" TileMode="Tile" Viewport="0,0,1,1" ViewportUnits="Absolute">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Brush="Gray">
+                <GeometryDrawing.Pen>
+                    <Pen Brush="Gray" Thickness="0.5" />
+                    <!-- Độ dày 2 pixel -->
+                </GeometryDrawing.Pen>
+                <GeometryDrawing.Geometry>
+                    <LineGeometry StartPoint="0,0" EndPoint="0,1" />
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
 </ResourceDictionary>

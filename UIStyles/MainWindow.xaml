@@ -9,18 +9,13 @@
     <StackPanel>
         <Expander Width="100" Header="D" Style="{StaticResource ExpanderSt}" >
         </Expander>
-        <DataGrid x:Name="customDataGrid"  AutoGenerateColumns="True"
-          IsReadOnly="True"
-          RowHeight="40"
-          AlternationCount="2"
-          BorderBrush="Gray"
-          BorderThickness="1"
-          Background="White"
-          Foreground="Black"
-          HorizontalGridLinesBrush="LightGray"
-          VerticalGridLinesBrush="LightGray">
+        <DataGrid
+            x:Name="customDataGrid" 
+            HorizontalGridLinesBrush="{StaticResource CustomHorizontalGridLinesBrush}"
+            VerticalGridLinesBrush="{StaticResource CustomVerticalGridLinesBrush}"
+            Style="{StaticResource DataGridSt}"
+          >
             
         </DataGrid>
-        <Button Style="{StaticResource BtnPrimarySt}" Content="Dinh"/>
     </StackPanel>
 </Window>
