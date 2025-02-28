@@ -11,8 +11,6 @@
         </Expander>
         <DataGrid
             x:Name="customDataGrid" 
-            HorizontalGridLinesBrush="{StaticResource CustomHorizontalGridLinesBrush}"
-            VerticalGridLinesBrush="{StaticResource CustomVerticalGridLinesBrush}"
             Style="{StaticResource DataGridSt}"
           >
             

@@ -3,17 +3,75 @@
 
     <Style x:Key="DataGridSt" TargetType="DataGrid" >
         <Setter Property="GridLinesVisibility" Value="All"/>
-        <!--<Setter Property="HorizontalGridLinesBrush" Value="{StaticResource PrimaryBrush}"/>
-        <Setter Property="VerticalGridLinesBrush" Value="{StaticResource PrimaryBrush}"/>-->
         <Setter Property="Background" Value="{StaticResource LightBrush}"/>
-        <Setter Property="AlternatingRowBackground" Value="{StaticResource LightBrushHover}"/>
-        
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource FrameBrush}"/>
+        <Setter Property="RowHeaderWidth" Value="0"/>
+        <Setter Property="CanUserSortColumns" Value="True"/>
+
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource LightBrush}"/>
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="BorderBrush" Value="{StaticResource FrameBrush}"/>
+                    <Setter Property="BorderThickness" Value="0 0 1 1"/>
+                    <Setter Property="Padding" Value="5"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                                <Grid>
+                                    <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Padding="{TemplateBinding Padding}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                            <TextBlock 
+                                                x:Name="SortIcon" 
+                                                Margin="5 0 0 0"
+                                                HorizontalAlignment="Right"
+                                                FontFamily="Segoe UI"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <Thumb x:Name="PART_RightHeaderGripper"
+                                           HorizontalAlignment="Right"
+                                           Cursor="SizeWE">
+                                        <Thumb.Template>
+                                            <ControlTemplate TargetType="Thumb">
+                                                <Border Background="{StaticResource FrameBrush}"
+                                                BorderBrush="{StaticResource FrameBrush}"
+                                                BorderThickness="0 0 1 1"/>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding Column.SortDirection, RelativeSource={RelativeSource Self}}" 
+                                        Value="Ascending">
+                                        <Setter TargetName="SortIcon" Property="Text" Value="↑"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Column.SortDirection, RelativeSource={RelativeSource Self}}" 
+                                        Value="Descending">
+                                        <Setter TargetName="SortIcon" Property="Text" Value="↓"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Column.SortDirection, RelativeSource={RelativeSource Self}}" 
+                                        Value="{x:Null}">
+                                        <Setter TargetName="SortIcon" Property="Text" Value=""/>
+                                    </DataTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+
         <Setter Property="CellStyle">
             <Setter.Value>
                 <Style TargetType="DataGridCell">
                     <Setter Property="Padding" Value="5"/>
-                    <!--<Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
-                    <Setter Property="BorderThickness" Value="0.3"/>-->
+                    <Setter Property="BorderThickness" Value="0"/>
 
                     <Setter Property="Background" Value="Transparent"/>
                     <Style.Triggers>
@@ -29,37 +87,41 @@
                 </Style>
             </Setter.Value>
         </Setter>
-        
-        <Setter Property="RowHeaderWidth" Value="0"/>
+
+        <Setter Property="VerticalGridLinesBrush">
+            <Setter.Value>
+                <DrawingBrush Stretch="None" TileMode="Tile" Viewport="0,0,1,1" ViewportUnits="Absolute">
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource FrameBrush}">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{StaticResource FrameBrush}" Thickness="1" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <LineGeometry StartPoint="0,0" EndPoint="1,0" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="HorizontalGridLinesBrush">
+            <Setter.Value>
+                <DrawingBrush Stretch="None" TileMode="Tile" Viewport="0,0,1,1" ViewportUnits="Absolute">
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource FrameBrush}">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{StaticResource FrameBrush}" Thickness="1" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <LineGeometry StartPoint="0,0" EndPoint="0,1" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter.Value>
+        </Setter>
     </Style>
-
-    <DrawingBrush x:Key="CustomHorizontalGridLinesBrush" Stretch="None" TileMode="Tile" Viewport="0,0,1,1" ViewportUnits="Absolute">
-        <DrawingBrush.Drawing>
-            <GeometryDrawing Brush="Gray">
-                <GeometryDrawing.Pen>
-                    <Pen Brush="Gray" Thickness="0.5" />
-                    <!-- Độ dày 2 pixel -->
-                </GeometryDrawing.Pen>
-                <GeometryDrawing.Geometry>
-                    <LineGeometry StartPoint="0,0" EndPoint="1,0" />
-                </GeometryDrawing.Geometry>
-            </GeometryDrawing>
-        </DrawingBrush.Drawing>
-    </DrawingBrush>
-
-    <!-- Định nghĩa Brush cho đường dọc -->
-    <DrawingBrush x:Key="CustomVerticalGridLinesBrush" Stretch="None" TileMode="Tile" Viewport="0,0,1,1" ViewportUnits="Absolute">
-        <DrawingBrush.Drawing>
-            <GeometryDrawing Brush="Gray">
-                <GeometryDrawing.Pen>
-                    <Pen Brush="Gray" Thickness="0.5" />
-                    <!-- Độ dày 2 pixel -->
-                </GeometryDrawing.Pen>
-                <GeometryDrawing.Geometry>
-                    <LineGeometry StartPoint="0,0" EndPoint="0,1" />
-                </GeometryDrawing.Geometry>
-            </GeometryDrawing>
-        </DrawingBrush.Drawing>
-    </DrawingBrush>
+    
 
 </ResourceDictionary>
