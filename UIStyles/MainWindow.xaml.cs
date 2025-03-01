@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,16 +20,15 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        customDataGrid.ItemsSource = GetData();
-    }
-    private List<Employee> GetData()
-    {
-        return new List<Employee>
-            {
-                new Employee { Id = 1, Name = "Nguyễn Văn A", Age = 25, Position = "Developer" },
+
+        var items = new ObservableCollection<Employee>
+        {
+            new Employee { Id = 1, Name = "Nguyễn Văn A", Age = 25, Position = "Developer" },
                 new Employee { Id = 2, Name = "Trần Thị B", Age = 30, Position = "Designer" },
                 new Employee { Id = 3, Name = "Phạm Văn C", Age = 28, Position = "Tester" }
-            };
+        };
+        var view = CollectionViewSource.GetDefaultView(items);
+        customDataGrid.ItemsSource = view;
     }
 }
 public class Employee

@@ -25,14 +25,22 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Padding="{TemplateBinding Padding}">
-                                        <StackPanel Orientation="Horizontal">
-                                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock 
+                                                Grid.Column="0"
+                                                Text="{TemplateBinding Content}" 
+                                                TextTrimming="CharacterEllipsis"
+                                                VerticalAlignment="Center"/>
                                             <TextBlock 
                                                 x:Name="SortIcon" 
+                                                Grid.Column="1"
                                                 Margin="5 0 0 0"
-                                                HorizontalAlignment="Right"
                                                 FontFamily="Segoe UI"/>
-                                        </StackPanel>
+                                        </Grid>
                                     </Border>
                                     <Thumb x:Name="PART_RightHeaderGripper"
                                            HorizontalAlignment="Right"

@@ -6,16 +6,15 @@
                 <ControlTemplate TargetType="Expander">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <DockPanel >
-                            <!-- Header with arrow icon on the right -->
                             <ToggleButton 
                                 DockPanel.Dock="Top" 
                                 IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded}" 
                                 Template="{DynamicResource ExpanderToggleButtonTemplate}">
                                 <ContentPresenter ContentSource="Header" HorizontalAlignment="Left" />
                             </ToggleButton>
-                            <!-- Content -->
                             <ContentPresenter 
                                 x:Name="ExpandSite" 
+                                
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                                 Margin="{TemplateBinding Padding}" />
