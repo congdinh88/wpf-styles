@@ -1,20 +1,26 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="ExpanderToggleButtonBaseStyle" TargetType="ToggleButton">
+        <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource LightBrush}"/>
+    </Style>
+    
     <Style x:Key="ExpanderSt" TargetType="Expander" >
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Expander">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                        <DockPanel >
+                        <DockPanel> 
                             <ToggleButton 
                                 DockPanel.Dock="Top" 
+                                Style="{StaticResource ExpanderToggleButtonBaseStyle}"
                                 IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded}" 
                                 Template="{DynamicResource ExpanderToggleButtonTemplate}">
                                 <ContentPresenter ContentSource="Header" HorizontalAlignment="Left" />
                             </ToggleButton>
                             <ContentPresenter 
                                 x:Name="ExpandSite" 
-                                
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                                 Margin="{TemplateBinding Padding}" />
@@ -32,14 +38,15 @@
             </Setter.Value>
         </Setter>
     </Style>
-
     <ControlTemplate x:Key="ExpanderToggleButtonTemplate" TargetType="ToggleButton">
         <Grid x:Name="Header" Background="{StaticResource PrimaryBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <ContentPresenter Grid.Column="0" VerticalAlignment="Center" />
+            <Border Grid.Column="0" Padding="5 0 0 0">
+                <ContentPresenter  VerticalAlignment="Center"/>
+            </Border>
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Border BorderThickness="0.5" BorderBrush="{StaticResource LightBrushHover}" Margin="2"/>
                 <TextBlock 

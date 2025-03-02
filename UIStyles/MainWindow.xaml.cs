@@ -15,26 +15,27 @@ namespace UIStyles;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : Window
-{
-    public MainWindow()
-    {
-        InitializeComponent();
-
-        var items = new ObservableCollection<Employee>
-        {
-            new Employee { Id = 1, Name = "Nguyễn Văn A", Age = 25, Position = "Developer" },
-                new Employee { Id = 2, Name = "Trần Thị B", Age = 30, Position = "Designer" },
-                new Employee { Id = 3, Name = "Phạm Văn C", Age = 28, Position = "Tester" }
-        };
-        var view = CollectionViewSource.GetDefaultView(items);
-        customDataGrid.ItemsSource = view;
-    }
-}
 public class Employee
 {
     public int Id { get; set; }
     public string Name { get; set; }
     public int Age { get; set; }
     public string Position { get; set; }
+}
+public partial class MainWindow : Window
+{
+
+    public ObservableCollection<Employee> Employees { get; set; }
+    public MainWindow()
+    {
+        InitializeComponent();
+
+        Employees = new ObservableCollection<Employee>
+        {
+            new Employee { Id = 1, Name = "Nguyễn Văn A", Age = 25, Position = "Developer" },
+                new Employee { Id = 2, Name = "Trần Thị B", Age = 30, Position = "Designer" },
+                new Employee { Id = 3, Name = "Phạm Văn C", Age = 28, Position = "Tester" }
+        };
+        customDataGrid.ItemsSource = Employees;
+    }
 }

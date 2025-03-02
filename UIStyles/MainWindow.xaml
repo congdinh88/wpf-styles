@@ -7,15 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <Expander  Width="100" Header="D" Style="{StaticResource ExpanderSt}" >
+        <Expander  Width="400" Header="D" Style="{StaticResource ExpanderSt}" >
             <TextBlock Text="d"/>
         </Expander>
         <DataGrid
-            
             x:Name="customDataGrid" 
+            HeadersVisibility="All"
             Style="{StaticResource DataGridSt}"
           >
-            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"  />
+                <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
+                <DataGridTextColumn Header="Position" Binding="{Binding Position}"/>
+                </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
 </Window>
