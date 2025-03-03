@@ -3,24 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UIStyles"
+        xmlns:uc="clr-namespace:UIStyles.UsercontrolApp"
         mc:Ignorable="d"
+        WindowStyle="None" 
+        AllowsTransparency="True"
+        ResizeMode="CanResize"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <Expander  Width="400" Header="D" Style="{StaticResource ExpanderSt}" >
-            <TextBlock Text="d"/>
-        </Expander>
-        <DataGrid
-            x:Name="customDataGrid" 
-            HeadersVisibility="All"
-            Style="{StaticResource DataGridSt}"
-          >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"  />
-                <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
-                <DataGridTextColumn Header="Position" Binding="{Binding Position}"/>
-                </DataGrid.Columns>
-        </DataGrid>
-    </StackPanel>
+    
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <!-- Chiều cao title bar -->
+            <RowDefinition Height="*"/>
+            <!-- Nội dung chính -->
+        </Grid.RowDefinitions>
+
+        <!-- Sử dụng CustomTitleBar -->
+        <uc:TitlebarUC Grid.Row="0"/>
+
+        <!-- Nội dung chính -->
+        <Grid Grid.Row="1">
+            <TextBlock Text="Main Content" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
 </Window>

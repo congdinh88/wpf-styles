@@ -36,6 +36,6 @@ public partial class MainWindow : Window
                 new Employee { Id = 2, Name = "Trần Thị B", Age = 30, Position = "Designer" },
                 new Employee { Id = 3, Name = "Phạm Văn C", Age = 28, Position = "Tester" }
         };
-        customDataGrid.ItemsSource = Employees;
+        //customDataGrid.ItemsSource = Employees;
     }
 }

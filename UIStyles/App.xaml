@@ -12,7 +12,6 @@
                 <ResourceDictionary Source="Styles/IconSt.xaml"/>
                 <ResourceDictionary Source="Styles/DataGridSt.xaml"/>
                 <ResourceDictionary Source="Styles/SeparatorSt.xaml"/>
-                <ResourceDictionary Source="Styles/RowIndexConverter.cs"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
