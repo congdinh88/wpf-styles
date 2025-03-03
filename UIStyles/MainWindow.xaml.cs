@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIStyles.Views;
 
 namespace UIStyles;
 
@@ -22,7 +23,7 @@ public class Employee
     public int Age { get; set; }
     public string Position { get; set; }
 }
-public partial class MainWindow : Window
+public partial class MainWindow : BaseWindow
 {
 
     public ObservableCollection<Employee> Employees { get; set; }

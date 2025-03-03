@@ -1,12 +1,33 @@
-﻿<Window x:Class="UIStyles.Views.BaseWindow"
+﻿<Window x:Class="UIStyles.Themes.BaseWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UIStyles.Views"
         mc:Ignorable="d"
         Title="BaseWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="{Binding Background, RelativeSource={RelativeSource Self}}">
+        <!-- Bố cục chính -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <!-- Title bar -->
+            <RowDefinition Height="*"/>
+            <!-- Nội dung chính -->
+        </Grid.RowDefinitions>
+
+        <!-- Title Bar -->
+        <ContentPresenter Grid.Row="0" Content="{Binding TitleBarContent, RelativeSource={RelativeSource Self}}"/>
+
+        <!-- Nội dung chính -->
+        <ContentPresenter Grid.Row="1" Content="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+
+        <!-- Vùng kéo thay đổi kích thước -->
+        <Thumb x:Name="TopThumb" Height="5" VerticalAlignment="Top" Cursor="SizeNS" DragDelta="Thumb_DragDelta"/>
+        <Thumb x:Name="BottomThumb" Height="5" VerticalAlignment="Bottom" Cursor="SizeNS" DragDelta="Thumb_DragDelta"/>
+        <Thumb x:Name="LeftThumb" Width="5" HorizontalAlignment="Left" Cursor="SizeWE" DragDelta="Thumb_DragDelta"/>
+        <Thumb x:Name="RightThumb" Width="5" HorizontalAlignment="Right" Cursor="SizeWE" DragDelta="Thumb_DragDelta"/>
+        <Thumb x:Name="TopLeftThumb" Width="5" Height="5" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="SizeNWSE" DragDelta="Thumb_DragDelta"/>
+        <Thumb x:Name="TopRightThumb" Width="5" Height="5" HorizontalAlignment="Right" VerticalAlignment="Top" Cursor="SizeNESW" DragDelta="Thumb_DragDelta"/>
+        <Thumb x:Name="BottomLeftThumb" Width="5" Height="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="SizeNESW" DragDelta="Thumb_DragDelta"/>
+        <Thumb x:Name="BottomRightThumb" Width="5" Height="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Cursor="SizeNWSE" DragDelta="Thumb_DragDelta"/>
     </Grid>
 </Window>

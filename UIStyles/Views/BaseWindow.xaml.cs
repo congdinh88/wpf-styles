@@ -12,8 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UIStyles.UsercontrolApp;
 
-namespace UIStyles.Views
+namespace UIStyles.Themes
 {
     /// <summary>
     /// Interaction logic for BaseWindow.xaml
@@ -32,6 +33,11 @@ namespace UIStyles.Views
         public BaseWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(BaseWindow), new FrameworkPropertyMetadata(typeof(BaseWindow)));
+
+            if (TitleBarContent == null)
+            {
+                TitleBarContent = new TitlebarUC(); // Title bar mặc định
+            }
         }
 
         private void Thumb_DragDelta(object sender, DragDeltaEventArgs e)

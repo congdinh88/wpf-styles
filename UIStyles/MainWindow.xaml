@@ -13,22 +13,6 @@
     <Grid>
 
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <!-- Chiều cao title bar -->
-            <RowDefinition Height="*"/>
-            <!-- Nội dung chính -->
-        </Grid.RowDefinitions>
-
-        <!-- Sử dụng CustomTitleBar -->
-        <uc:TitlebarUC Grid.Row="0"/>
-
-        <!-- Nội dung chính -->
-        <Grid Grid.Row="1">
-            <TextBlock Text="Main Content" 
-                       Foreground="White" 
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center"/>
-        </Grid>
+       
     </Grid>
 </Window>
