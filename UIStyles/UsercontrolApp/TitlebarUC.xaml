@@ -5,34 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UIStyles.UsercontrolApp"
              mc:Ignorable="d" 
-             
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="#FF2D2D30" 
-            BorderBrush="#FF3F3F46" 
-            BorderThickness="0,0,0,1">
+            >
+
+    <Border 
+        Background="{StaticResource FrameBrush}" 
+        BorderThickness="0 0 0 1">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <!-- Logo -->
                 <ColumnDefinition Width="*"/>
-                <!-- Menu -->
                 <ColumnDefinition Width="Auto"/>
-                <!-- Nút điều khiển -->
             </Grid.ColumnDefinitions>
 
-            <!-- Logo (có thể thay bằng icon của bạn) -->
             <TextBlock Grid.Column="0" 
                        Text="🖥️" 
                        FontSize="16" 
-                       Margin="5,0,10,0" 
-                       VerticalAlignment="Center"
-                       Foreground="White"/>
+                       Margin="5 5 5 0" 
+                       VerticalAlignment="Top"/>
 
-            <!-- Menu -->
             <Menu Grid.Column="1" 
                   Background="Transparent" 
-                  Foreground="White" 
-                  VerticalAlignment="Center">
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Left">
                 <MenuItem Header="File">
                     <MenuItem Header="New" />
                     <MenuItem Header="Open" />
@@ -42,108 +36,45 @@
                     <MenuItem Header="Undo" />
                     <MenuItem Header="Redo" />
                 </MenuItem>
-                <MenuItem Header="View">
-                    <MenuItem Header="Solution Explorer" />
-                    <MenuItem Header="Properties" />
+                <MenuItem Header="File">
+                    <MenuItem Header="New" />
+                    <MenuItem Header="Open" />
+                    <MenuItem Header="Save" />
                 </MenuItem>
-                <MenuItem Header="Project" />
-                <MenuItem Header="Build" />
-                <MenuItem Header="Debug" />
-                <MenuItem Header="Test" />
-                <MenuItem Header="Analyze" />
-                <MenuItem Header="Tools" />
-                <MenuItem Header="Extensions" />
-                <MenuItem Header="Window" />
-                <MenuItem Header="Help" />
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Undo" />
+                    <MenuItem Header="Redo" />
+                </MenuItem>
+                <MenuItem Header="File">
+                    <MenuItem Header="New" />
+                    <MenuItem Header="Open" />
+                    <MenuItem Header="Save" />
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Undo" />
+                    <MenuItem Header="Redo" />
+                </MenuItem>
+
             </Menu>
 
-            <!-- Nút điều khiển cửa sổ -->
             <StackPanel Grid.Column="2" 
-                        Orientation="Horizontal" 
+                        Orientation="Horizontal"
+                        VerticalAlignment="Top"
                         HorizontalAlignment="Right">
                 <Button x:Name="MinimizeButton" 
-                        Content="_" 
-                        Width="40" 
-                        Height="30" 
-                        Background="Transparent" 
-                        BorderThickness="0" 
-                        Foreground="White" 
+                        Content="&#xE921;"
+                        Style="{StaticResource BtnTitlebarSt}"
                         Click="MinimizeButton_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" 
-                                                              VerticalAlignment="Center"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF3F3F46"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
                 </Button>
                 <Button x:Name="MaximizeRestoreButton" 
-                        Content="🗖" 
-                        Width="40" 
-                        Height="30" 
-                        Background="Transparent" 
-                        BorderThickness="0" 
-                        Foreground="White" 
+                        Content="&#xE922;" 
+                        Style="{StaticResource BtnTitlebarSt}"
                         Click="MaximizeRestoreButton_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" 
-                                                              VerticalAlignment="Center"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF3F3F46"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
                 </Button>
                 <Button x:Name="CloseButton" 
-                        Content="X" 
-                        Width="40" 
-                        Height="30" 
-                        Background="Transparent" 
-                        BorderThickness="0" 
-                        Foreground="White" 
+                        Content="&#xE8BB;" 
+                        Style="{StaticResource BtnTitlebarCloseSt}" 
                         Click="CloseButton_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" 
-                                                              VerticalAlignment="Center"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FFE81123"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
                 </Button>
             </StackPanel>
         </Grid>

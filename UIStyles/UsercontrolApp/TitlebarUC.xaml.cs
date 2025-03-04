@@ -28,12 +28,16 @@ namespace UIStyles.UsercontrolApp
 
         private void CustomTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            // Tìm cửa sổ cha
             Window window = Window.GetWindow(this);
+            if (e.ClickCount == 2)
+            {
+                MaximizeRestoreButton_Click(null, null);
+            }
             if (window != null && e.ChangedButton == MouseButton.Left && !IsMouseOverControlButton(e))
             {
                 window.DragMove();
             }
+
         }
 
         private bool IsMouseOverControlButton(MouseButtonEventArgs e)
@@ -59,12 +63,14 @@ namespace UIStyles.UsercontrolApp
                 if (window.WindowState == WindowState.Maximized)
                 {
                     window.WindowState = WindowState.Normal;
-                    MaximizeRestoreButton.Content = "🗖";
+                    MaximizeRestoreButton.Content = "\uE922";
                 }
                 else
                 {
+                    window.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+                    window.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
                     window.WindowState = WindowState.Maximized;
-                    MaximizeRestoreButton.Content = "🗗";
+                    MaximizeRestoreButton.Content = "\uE923";
                 }
             }
         }
@@ -77,5 +83,79 @@ namespace UIStyles.UsercontrolApp
                 window.Close();
             }
         }
+
+
+        //private void InitHeader()
+        //{
+        //    var border = Find<Border>("borderHeader");
+        //    var restoreIfMove = false;
+
+        //    border.MouseLeftButtonDown += (s, e) =>
+        //    {
+        //        if (e.ClickCount == 2)
+        //        {
+        //            if ((ResizeMode == ResizeMode.CanResize) ||
+        //                (ResizeMode == ResizeMode.CanResizeWithGrip))
+        //            {
+        //                SwitchState();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (WindowState == WindowState.Maximized)
+        //            {
+        //                restoreIfMove = true;
+        //            }
+
+        //            DragMove();
+        //        }
+        //    };
+        //    border.MouseLeftButtonUp += (s, e) =>
+        //    {
+        //        restoreIfMove = false;
+        //    };
+        //    border.MouseMove += (s, e) =>
+        //    {
+        //        if (restoreIfMove)
+        //        {
+        //            restoreIfMove = false;
+        //            var mouseX = e.GetPosition(this).X;
+        //            var width = RestoreBounds.Width;
+        //            var x = mouseX - width / 2;
+
+        //            if (x < 0)
+        //            {
+        //                x = 0;
+        //            }
+        //            else
+        //            if (x + width > screenSize.X)
+        //            {
+        //                x = screenSize.X - width;
+        //            }
+
+        //            WindowState = WindowState.Normal;
+        //            Left = x;
+        //            Top = 0;
+        //            DragMove();
+        //        }
+        //    };
+        //}
+        //private void SwitchState()
+        //{
+        //    switch (WindowState)
+        //    {
+        //        case WindowState.Normal:
+        //            {
+        //                WindowState = WindowState.Maximized;
+        //                break;
+        //            }
+        //        case WindowState.Maximized:
+        //            {
+        //                WindowState = WindowState.Normal;
+        //                break;
+        //            }
+        //    }
+        //}
+
     }
 }
