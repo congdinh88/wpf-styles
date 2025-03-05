@@ -8,6 +8,7 @@
             >
 
     <Border 
+        x:Name="borderHeader"
         Background="{StaticResource FrameBrush}" 
         BorderThickness="0 0 0 1">
         <Grid>
@@ -22,41 +23,44 @@
                        FontSize="16" 
                        Margin="5 5 5 0" 
                        VerticalAlignment="Top"/>
-
-            <Menu Grid.Column="1" 
-                  Background="Transparent" 
-                  VerticalAlignment="Center"
-                  HorizontalAlignment="Left">
-                <MenuItem Header="File">
-                    <MenuItem Header="New" />
-                    <MenuItem Header="Open" />
-                    <MenuItem Header="Save" />
-                </MenuItem>
-                <MenuItem Header="Edit">
-                    <MenuItem Header="Undo" />
-                    <MenuItem Header="Redo" />
-                </MenuItem>
-                <MenuItem Header="File">
-                    <MenuItem Header="New" />
-                    <MenuItem Header="Open" />
-                    <MenuItem Header="Save" />
-                </MenuItem>
-                <MenuItem Header="Edit">
-                    <MenuItem Header="Undo" />
-                    <MenuItem Header="Redo" />
-                </MenuItem>
-                <MenuItem Header="File">
-                    <MenuItem Header="New" />
-                    <MenuItem Header="Open" />
-                    <MenuItem Header="Save" />
-                </MenuItem>
-                <MenuItem Header="Edit">
-                    <MenuItem Header="Undo" />
-                    <MenuItem Header="Redo" />
-                </MenuItem>
-
-            </Menu>
-
+            <ToolBarTray
+                Grid.Column="1" 
+                HorizontalAlignment="Left"
+                Background="Transparent" >
+                <ToolBar 
+                    Style="{StaticResource ToolbarSt}"
+                    Background="Transparent">
+                    <Menu  
+                        VerticalAlignment="Center">
+                        <MenuItem Header="File1">
+                            <MenuItem Header="New" />
+                            <MenuItem Header="Open" />
+                            <MenuItem Header="Save" />
+                        </MenuItem>
+                        <MenuItem Header="Edit">
+                            <MenuItem Header="Undo" />
+                            <MenuItem Header="Redo" />
+                        </MenuItem>
+                    </Menu>
+                    <Separator Style="{StaticResource VerticalSeparator}"/>
+                </ToolBar>
+                <ToolBar 
+     Style="{StaticResource ToolbarSt}"
+     Background="Transparent">
+                    <Menu  
+         VerticalAlignment="Center">
+                        <MenuItem Header="File">
+                            <MenuItem Header="New" />
+                            <MenuItem Header="Open" />
+                            <MenuItem Header="Save" />
+                        </MenuItem>
+                        <MenuItem Header="Edit">
+                            <MenuItem Header="Undo" />
+                            <MenuItem Header="Redo" />
+                        </MenuItem>
+                    </Menu>
+                </ToolBar>
+            </ToolBarTray>
             <StackPanel Grid.Column="2" 
                         Orientation="Horizontal"
                         VerticalAlignment="Top"

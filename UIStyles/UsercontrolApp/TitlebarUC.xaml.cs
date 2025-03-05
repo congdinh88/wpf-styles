@@ -23,10 +23,9 @@ namespace UIStyles.UsercontrolApp
         public TitlebarUC()
         {
             InitializeComponent();
-            this.MouseDown += CustomTitleBar_MouseDown;
+            this.MouseDown += TitleBar_MouseDown;
         }
-
-        private void CustomTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
+        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Window window = Window.GetWindow(this);
             if (e.ClickCount == 2)
@@ -37,15 +36,12 @@ namespace UIStyles.UsercontrolApp
             {
                 window.DragMove();
             }
-
         }
-
         private bool IsMouseOverControlButton(MouseButtonEventArgs e)
         {
             // Kiểm tra xem chuột có đang trên các nút điều khiển không
             return MinimizeButton.IsMouseOver || MaximizeRestoreButton.IsMouseOver || CloseButton.IsMouseOver;
         }
-
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             Window window = Window.GetWindow(this);
@@ -54,7 +50,6 @@ namespace UIStyles.UsercontrolApp
                 window.WindowState = WindowState.Minimized;
             }
         }
-
         private void MaximizeRestoreButton_Click(object sender, RoutedEventArgs e)
         {
             Window window = Window.GetWindow(this);
@@ -67,14 +62,15 @@ namespace UIStyles.UsercontrolApp
                 }
                 else
                 {
+                    //Vừa màn hình hiện tại của máy tính không bị che Task bar của window
                     window.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
                     window.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+
                     window.WindowState = WindowState.Maximized;
                     MaximizeRestoreButton.Content = "\uE923";
                 }
             }
         }
-
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Window window = Window.GetWindow(this);
@@ -83,79 +79,5 @@ namespace UIStyles.UsercontrolApp
                 window.Close();
             }
         }
-
-
-        //private void InitHeader()
-        //{
-        //    var border = Find<Border>("borderHeader");
-        //    var restoreIfMove = false;
-
-        //    border.MouseLeftButtonDown += (s, e) =>
-        //    {
-        //        if (e.ClickCount == 2)
-        //        {
-        //            if ((ResizeMode == ResizeMode.CanResize) ||
-        //                (ResizeMode == ResizeMode.CanResizeWithGrip))
-        //            {
-        //                SwitchState();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (WindowState == WindowState.Maximized)
-        //            {
-        //                restoreIfMove = true;
-        //            }
-
-        //            DragMove();
-        //        }
-        //    };
-        //    border.MouseLeftButtonUp += (s, e) =>
-        //    {
-        //        restoreIfMove = false;
-        //    };
-        //    border.MouseMove += (s, e) =>
-        //    {
-        //        if (restoreIfMove)
-        //        {
-        //            restoreIfMove = false;
-        //            var mouseX = e.GetPosition(this).X;
-        //            var width = RestoreBounds.Width;
-        //            var x = mouseX - width / 2;
-
-        //            if (x < 0)
-        //            {
-        //                x = 0;
-        //            }
-        //            else
-        //            if (x + width > screenSize.X)
-        //            {
-        //                x = screenSize.X - width;
-        //            }
-
-        //            WindowState = WindowState.Normal;
-        //            Left = x;
-        //            Top = 0;
-        //            DragMove();
-        //        }
-        //    };
-        //}
-        //private void SwitchState()
-        //{
-        //    switch (WindowState)
-        //    {
-        //        case WindowState.Normal:
-        //            {
-        //                WindowState = WindowState.Maximized;
-        //                break;
-        //            }
-        //        case WindowState.Maximized:
-        //            {
-        //                WindowState = WindowState.Normal;
-        //                break;
-        //            }
-        //    }
-        //}
-
     }
 }

@@ -1,12 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="VerticalSeparator" TargetType="Separator">
-        <Setter Property="Background" Value="{StaticResource LightBrushHover}"/>
-        <Setter Property="Width" Value="1"/>
-        <Setter Property="VerticalAlignment" Value="Stretch"/>
-        <Setter Property="LayoutTransform">
+    <Style x:Key="VerticalSeparator" TargetType="{x:Type Separator}">
+        <Setter Property="Template">
             <Setter.Value>
-                <RotateTransform Angle="90"/>
+                <ControlTemplate TargetType="{x:Type Separator}">
+                    <Border Width="1" Height="20" Background="{StaticResource SecondaryyBrushHover}" Margin="5 0"/>
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
