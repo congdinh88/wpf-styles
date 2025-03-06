@@ -8,7 +8,7 @@
     <!--Color Success #198754 -rgba(25,135,84,255) -->
     <Color x:Key="DangerColor">#dc3545</Color>
     <!--Color Danger #dc3545 -rgba(220,53,69,255) -->
-    <Color x:Key="WarningyColor">#ffc107</Color>
+    <Color x:Key="WarningColor">#ffc107</Color>
     <!--Color Warning #ffc107 -rgba(255,193,7,255)-->
     <Color x:Key="InfoColor">#0dcaf0</Color>
     <!--Color Info #0dcaf0 -rgba(13,202,240,255) -->
@@ -31,7 +31,7 @@
     <!--Color Success hover #198754 -rgba(25,135,84,255) -->
     <Color x:Key="DangerColorHover">#ab303b</Color>
     <!--Color Danger hover #dc3545 -rgba(220,53,69,255) -->
-    <Color x:Key="WarningyColorHover">#bd9315</Color>
+    <Color x:Key="WarningColorHover">#bd9315</Color>
     <!--Color Warning hover #ffc107 -rgba(255,193,7,255)-->
     <Color x:Key="InfoColorHover">#1d96ae</Color>
     <!--Color Info hover #0dcaf0 -rgba(13,202,240,255) -->
@@ -42,25 +42,25 @@
     <Color x:Key="LinkColorHover">#167cc0</Color>
     <!--Color Link hover #0d9efe -rgba(13,158,254,255) -->
 
-    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
-    <SolidColorBrush x:Key="SecondaryyBrush" Color="{StaticResource SecondaryColor}" />
-    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
-    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
-    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningyColor}" />
-    <SolidColorBrush x:Key="InfoBrush" Color="{StaticResource InfoColor}" />
-    <SolidColorBrush x:Key="LightBrush" Color="{StaticResource LightColor}" />
-    <SolidColorBrush x:Key="DarkBrush" Color="{StaticResource DarkColor}" />
-    <SolidColorBrush x:Key="LinkBrush" Color="{StaticResource LinkColor}" />
-    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
-    <SolidColorBrush x:Key="FrameBrush" Color="{StaticResource FrameColor}" />
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{DynamicResource PrimaryColor}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{DynamicResource SecondaryColor}" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="{DynamicResource SuccessColor}" />
+    <SolidColorBrush x:Key="DangerBrush" Color="{DynamicResource DangerColor}" />
+    <SolidColorBrush x:Key="WarningBrush" Color="{DynamicResource WarningColor}" />
+    <SolidColorBrush x:Key="InfoBrush" Color="{DynamicResource InfoColor}" />
+    <SolidColorBrush x:Key="LightBrush" Color="{DynamicResource LightColor}" />
+    <SolidColorBrush x:Key="DarkBrush" Color="{DynamicResource DarkColor}" />
+    <SolidColorBrush x:Key="LinkBrush" Color="{DynamicResource LinkColor}" />
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource BackgroundColor}" />
+    <SolidColorBrush x:Key="FrameBrush" Color="{DynamicResource FrameColor}" />
 
-    <SolidColorBrush x:Key="PrimaryBrushHover" Color="{StaticResource PrimaryColorHover}" />
-    <SolidColorBrush x:Key="SecondaryyBrushHover" Color="{StaticResource SecondaryColorHover}" />
-    <SolidColorBrush x:Key="SuccessBrushHover" Color="{StaticResource SuccessColorHover}" />
-    <SolidColorBrush x:Key="DangerBrushHover" Color="{StaticResource DangerColorHover}" />
-    <SolidColorBrush x:Key="WarningBrushHover" Color="{StaticResource WarningyColorHover}" />
-    <SolidColorBrush x:Key="InfoBrushHover" Color="{StaticResource InfoColorHover}" />
-    <SolidColorBrush x:Key="LightBrushHover" Color="{StaticResource LightColorHover}" />
-    <SolidColorBrush x:Key="DarkBrushHover" Color="{StaticResource DarkColorHover}" />
-    <SolidColorBrush x:Key="LinkBrushHover" Color="{StaticResource LinkColorHover}" />
+    <SolidColorBrush x:Key="PrimaryBrushHover" Color="{DynamicResource PrimaryColorHover}" />
+    <SolidColorBrush x:Key="SecondaryBrushHover" Color="{DynamicResource SecondaryColorHover}" />
+    <SolidColorBrush x:Key="SuccessBrushHover" Color="{DynamicResource SuccessColorHover}" />
+    <SolidColorBrush x:Key="DangerBrushHover" Color="{DynamicResource DangerColorHover}" />
+    <SolidColorBrush x:Key="WarningBrushHover" Color="{DynamicResource WarningColorHover}" />
+    <SolidColorBrush x:Key="InfoBrushHover" Color="{DynamicResource InfoColorHover}" />
+    <SolidColorBrush x:Key="LightBrushHover" Color="{DynamicResource LightColorHover}" />
+    <SolidColorBrush x:Key="DarkBrushHover" Color="{DynamicResource DarkColorHover}" />
+    <SolidColorBrush x:Key="LinkBrushHover" Color="{DynamicResource LinkColorHover}" />
 </ResourceDictionary>

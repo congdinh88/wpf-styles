@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="ExpanderToggleButtonBaseStyle" TargetType="ToggleButton">
-        <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource LightBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource LightBrush}"/>
     </Style>
     
     <Style x:Key="ExpanderSt" TargetType="Expander" >
@@ -14,7 +14,7 @@
                         <DockPanel> 
                             <ToggleButton 
                                 DockPanel.Dock="Top" 
-                                Style="{StaticResource ExpanderToggleButtonBaseStyle}"
+                                Style="{DynamicResource ExpanderToggleButtonBaseStyle}"
                                 IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded}" 
                                 Template="{DynamicResource ExpanderToggleButtonTemplate}">
                                 <ContentPresenter ContentSource="Header" HorizontalAlignment="Left" />
@@ -39,7 +39,7 @@
         </Setter>
     </Style>
     <ControlTemplate x:Key="ExpanderToggleButtonTemplate" TargetType="ToggleButton">
-        <Grid x:Name="Header" Background="{StaticResource PrimaryBrush}">
+        <Grid x:Name="Header" Background="{DynamicResource PrimaryBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -48,7 +48,7 @@
                 <ContentPresenter  VerticalAlignment="Center"/>
             </Border>
             <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <Border BorderThickness="0.5" BorderBrush="{StaticResource LightBrushHover}" Margin="2"/>
+                <Border BorderThickness="0.5" BorderBrush="{DynamicResource LightBrushHover}" Margin="2"/>
                 <TextBlock 
                     x:Name="IconHeader" VerticalAlignment="Center" Margin="3 5 5 5"
                     FontFamily="Segoe MDL2 Assets" Text="&#xE948;" FontSize="10"
@@ -60,7 +60,7 @@
                 <Setter TargetName="IconHeader" Property="TextBlock.Text" Value="&#xE921;" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="Header" Property="Grid.Background" Value="{StaticResource PrimaryBrushHover}"/>
+                <Setter TargetName="Header" Property="Grid.Background" Value="{DynamicResource PrimaryBrushHover}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

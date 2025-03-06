@@ -6,13 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles/ColorSt.xaml"/>
-                <ResourceDictionary Source="Styles/ExpanderSt.xaml"/>
-                <ResourceDictionary Source="Styles/ButtonSt.xaml"/>
-                <ResourceDictionary Source="Styles/IconSt.xaml"/>
-                <ResourceDictionary Source="Styles/DataGridSt.xaml"/>
-                <ResourceDictionary Source="Styles/SeparatorSt.xaml"/>
-                <ResourceDictionary Source="Styles/ToolbarSt.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Styles/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

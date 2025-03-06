@@ -45,10 +45,10 @@
                     <Separator Style="{StaticResource VerticalSeparator}"/>
                 </ToolBar>
                 <ToolBar 
-     Style="{StaticResource ToolbarSt}"
-     Background="Transparent">
+                     Style="{StaticResource ToolbarSt}"
+                     Background="Transparent">
                     <Menu  
-         VerticalAlignment="Center">
+                        VerticalAlignment="Center">
                         <MenuItem Header="File">
                             <MenuItem Header="New" />
                             <MenuItem Header="Open" />

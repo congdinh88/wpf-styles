@@ -9,14 +9,15 @@
                             <Thumb x:Name="ToolBarThumb" Width="10">
                                 <Thumb.Template>
                                     <ControlTemplate>
-                                        <Border Width="4" Cursor="SizeAll">
-                                            <TextBlock Text="|"/>
+                                        <Border Width="2" Cursor="SizeAll" Background="{DynamicResource DarkBrush }">
+                                            
                                         </Border>
                                     </ControlTemplate>
                                 </Thumb.Template>
                             </Thumb>
                             <!-- Nội dung chính của ToolBar -->
-                            <ItemsPresenter VerticalAlignment="Center"/>
+                            <ItemsPresenter VerticalAlignment="Center" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            </ItemsPresenter>
                         </StackPanel>
                     </Border>
                 </ControlTemplate>

@@ -15,6 +15,7 @@
             ResizeBorderThickness="5"/>
     </WindowChrome.WindowChrome>
     <StackPanel>
+        <Button Style="{StaticResource BtnOutlineSt}" Content="s"/>
         <uc:TitlebarUC/>
     </StackPanel>
 </Window>
